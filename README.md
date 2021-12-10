@@ -25,7 +25,8 @@ The movement is predicted using movement primitives as encoding method so that o
 
 In particular the predicted policy is not deterministic but stochastic since the model is trained on a distribution of trajectories provided as demonstrations.
 
-the global piplein of the project is: 
+the global pipline of the project is: 
+
 ![Project_pipeline](project_images/project_pipeline.png)
 
 ## Build With
