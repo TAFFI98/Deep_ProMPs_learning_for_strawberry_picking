@@ -33,9 +33,9 @@ And the model architecture used to predict Promps weights distribution is:
 
 ![deep model](project_images/deep_model.png)
 
+The variance in the final orientation of the EE is the main type of uncertainty in the demonstartions encoded in the Pro MPs weights.
 
-<img src="project_images/panda_1.gif" width="400" height="400">
-<img src="project_images/panda_2.gif" width="400" height="400">
+<img src="project_images/panda_1.gif" width="400" height="400"> <img src="project_images/panda_2.gif" width="400" height="400">
 
 
 ## Build With
