@@ -23,7 +23,10 @@ The particular task considered is the Reach to Pick task so the simple action of
 
 The movement is predicted using movement primitives as encoding method so that only a bunch of weights should be predicted by the deep neural network taking as input the image from the home position.
 
-In particular the predited policy is not deterministic but stochastic since the model is trained on a distribution of trajectories provided as demonstrations. 
+In particular the predicted policy is not deterministic but stochastic since the model is trained on a distribution of trajectories provided as demonstrations.
+
+the global piplein of the project is: 
+![Project_pipeline](project_images/project_pipeline.png)
 
 ## Build With
 
