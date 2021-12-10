@@ -29,6 +29,10 @@ the global pipline of the project is:
 
 ![Project_pipeline](project_images/project_pipeline.png)
 
+And the model architecture used to predict Promps weights distribution is:
+
+![deep model](project_images/deep_model.png)
+
 ## Build With
 
 The whole simulation is executed in [Pybullet](https://pybullet.org/wordpress/). And the deep models are trained using [Tensorflow 2.7](https://pypi.org/project/tensorflow/) .
