@@ -34,9 +34,9 @@ And the model architecture used to predict Promps weights distribution is:
 ![deep model](project_images/deep_model.png)
 
 
-![gif1]<img src="project_images/panda_1.gif" width="400" height="790">
+<img src="project_images/panda_1.gif" width="400" height="400">
+<img src="project_images/panda_2.gif" width="400" height="400">
 
-![](project_images/panda_2.gif)![](project_images/panda_2.gif)
 
 ## Build With
 
