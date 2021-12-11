@@ -87,7 +87,7 @@ Having a dataset with balanced number of demonstrations for the three configurat
 
 For each demonstration an RGB-D image from the home position and the 9 joints trajectories are recorded in the ``` Data_collected``` folder. 
 
-An dataset of demonstrations is available at [this link]().
+An dataset of demonstrations is available at [this link](https://drive.google.com/drive/folders/118D5Strr-DAFOcBNMijPIJiI24i6cgA2?usp=sharing).
 
 ### ProMPs training
 
