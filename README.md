@@ -90,7 +90,23 @@ Having a dataset with balanced number of demonstrations for the three configurat
 For each demonstration an RGB-D image from the home position and the 9 joints trajectories are recorded in the ``` Data_collected``` folder. 
 
 An dataset of demonstrations is available at [this link]().
+
 ### ProMPs training
+
+With the collected dataset it is time to traine the deep models to predic the ProMPs weights distributions.
+
+The first thing to do is to create the annotations for the mean and covariance of the ProMPs weights. To do this, for each folder in ``` ProMP_training/single_joint_covariances``` run:
+
+```
+python ProMP_training/single_joint_covariances/ProMPs_Reach_to_Pick_X/DEEP MODEL EXPERIMENT/data_preprocessing.py
+```
+
+This will create .json files  in the ``` ProMP_training/single_joint_covariances/ProMPs_Reach_to_Pick_X/annotations/``` folder.
+
+Now you are ready to go with the training running:
+```
+python ProMP_training/single_joint_covariances/ProMPs_Reach_to_Pick_X/DEEP MODEL EXPERIMENT/train_test.py
+```
 
 A version of altready trained models is available at [this link](https://drive.google.com/drive/folders/14XoIeWI4mnoz4NsnKx7VsvDYEoeF_5MY?usp=sharing)
 
