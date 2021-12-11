@@ -91,9 +91,11 @@ An dataset of demonstrations is available at [this link](https://drive.google.co
 
 ### ProMPs training
 
-With the collected dataset it is time to traine the deep models to predic the ProMPs weights distributions.
+With the collected dataset it is time to train the deep models to predict the ProMPs weights distributions.
 
-The first thing to do is to create the annotations for the mean and covariance of the ProMPs weights. To do this, for each folder in ``` ProMP_training/single_joint_covariances``` run:
+The first thing to do is to fille the ``` ProMP_training/data/color_img```,``` ProMP_training/data/depth```,``` ProMP_training/data/json_files``` folders with the data from the collected demonstrations.
+
+The second thing to do is to create the annotations for the mean and covariance of the ProMPs weights. To do this, for each folder in ``` ProMP_training/single_joint_covariances``` run:
 
 ```
 python ProMP_training/single_joint_covariances/ProMPs_Reach_to_Pick_X/DEEP MODEL EXPERIMENT/data_preprocessing.py
