@@ -1,0 +1,28 @@
+datetime                      <class 'datetime.datetime'>                                                                         
+os                            <module 'os' from '/Users/alessandratafuro/opt/anaconda3/envs/PyBullet_env/lib/python3.9/os.py'>    
+inspect                       <module 'inspect' from '/Users/alessandratafuro/opt/anaconda3/envs/PyBullet_env/lib/python3.9/inspect.py'>
+now                           09_12__20_21                                                                                        
+EXP_DIR                       /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_f2/DEEP MODEL EXPERIMENT
+J_DIR                         /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_f2
+ROOT_DIR                      /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster             
+IMAGE_PATH                    /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/data/color_img/
+DEPTH_PATH                    /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/data/depth/ 
+ANNOTATION_PATH               /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_f2/annotations/
+OUTPUT_PATH                   /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_f2/DEEP MODEL EXPERIMENT/PLOTS/traj & weights pred distributions
+LOSS_PATH                     /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_f2/DEEP MODEL EXPERIMENT/LOSS/09_12__20_21
+METRIC_PATH                   /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_f2/DEEP MODEL EXPERIMENT/METRIC
+LOG_DIR                       /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_f2/DEEP MODEL EXPERIMENT/LOGS/09_12__20_21
+MODEL_FOLDER                  /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_f2/DEEP MODEL EXPERIMENT/MODELS
+MODEL_NAME                    model_09_12__20_21                                                                                  
+MODEL_PATH                    /Users/alessandratafuro/Documents/Lincoln projects/M. Sc. Thesis/ProMP_training/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_f2/DEEP MODEL EXPERIMENT/MODELS/model_09_12__20_21
+batch                         5                                                                                                   
+epochs                        600                                                                                                 
+lr                            0.0001                                                                                              
+val_frac                      0.2                                                                                                 
+use_val_in_train              False                                                                                               
+N_test                        7                                                                                                   
+random_state                  42                                                                                                  
+l1_reg                        0                                                                                                   
+l2_reg                        0                                                                                                   
+es                            {'enable': False, 'delta': 0, 'patience': 10, 'restore_best_weight': True}                          
+rl                            {'enable': True, 'factor': 0.99, 'min_lr': 1e-09, 'patience': 5}                                    
