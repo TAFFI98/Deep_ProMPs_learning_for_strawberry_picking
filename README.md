@@ -110,9 +110,24 @@ A version of altready trained models is available at [this link](https://drive.g
 
 ### PoWER
 
+Ok now your Deep models are able to predict the trajectories disctibutions. But wat's the optimal value of the weights for a certain cluster configuration?
+Here the Policy learning by Weighting Exploration with the Returns algorithm has been used to optimize the policy.
+
+
+![PoWER](project_images/PoWER.png)
+
+An implementation of this algorithm is available in the  ``` PyBullet_simulations/PoWER/PoWER.py``` file.
+
+To start the iterations of the algrithm simly run:
+```
+python PyBullet_simulations/RL_training.py
+```
+You can then try the new optimized wieghts inserting them in the ```PyBullet_simulations/test_panda_gym.py```file and running it.
+
 
 ## References
-
+PoWER: https://link.springer.com/article/10.1007%2Fs10994-010-5223-6
+ProMPs: http://eprints.lincoln.ac.uk/id/eprint/25785/1/5177-probabilistic-movement-primitives.pdf
 
 ## Contact
 
