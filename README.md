@@ -10,9 +10,11 @@
   * [Prerequisites](#prerequisites)
   * [Set Up](#Set-Up)
 * [Usage](#usage)
+  *  [PyBullet simulations collection](#PyBullet-simulations-collections)
+  *  [ProMPs training](#ProMPs-training)
+  *  [PoWER](#PoWER)
 * [References](#references)
 * [Contact](#contact)
-
 
 
 ## About The Project
@@ -55,6 +57,14 @@ conda create -n <environment-name> --file req.txt
 ### Setup
 
 ## Usage
+
+### PyBullet simulations collection
+
+### ProMPs training
+
+A version of altready trained models is available at [this link](https://drive.google.com/drive/folders/14XoIeWI4mnoz4NsnKx7VsvDYEoeF_5MY?usp=sharing)
+
+### PoWER
 
 
 ## References
