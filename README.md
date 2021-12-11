@@ -60,6 +60,36 @@ conda create -n <environment-name> --file req.txt
 
 ### PyBullet simulations collection
 
+This repository contains the code to collect the demonstrations for the reach to pick task. For 60 different random cluster configurations 10 demonstrations have been taken. Each of them encodes a different orientation of the End Effector at the final point. 
+
+The custer configuration is ompletely randomized but there are three recurrent configurations, namely with no obstacles on front of the target strawberry (Config 0), with an obsatcle on the left (Config 1) and with and obstacle on the right (Config 2) .
+
+![CLuster config](project_images/cluster_conf.png)
+
+
+To collect the demonstrations for Config 0 run:
+
+```
+python PyBullet_simulations/panda_gym/resources/Collect_Demonstrations.py
+```
+
+To collect the demonstrations for Config 1 run:
+
+```
+python PyBullet_simulations/panda_gym/resources/Collect_Demonstrations_1.py
+```
+
+To collect the demonstrations for Config 2 run:
+
+```
+python PyBullet_simulations/panda_gym/resources/Collect_Demonstrations_2.py
+```
+
+Having a dataset with balanced number of demonstrations for the three configurations helps for a better generalization for theis reason 20 demonstrations for each configurations have been collected for the experiment. (3 * 20 = 60 different cluster configurations)
+
+For each demonstration an RGB-D image from the home position and the 9 joints trajectories are recorded in the ``` Data_collected``` folder. 
+
+An dataset of demonstrations is available at [this link]().
 ### ProMPs training
 
 A version of altready trained models is available at [this link](https://drive.google.com/drive/folders/14XoIeWI4mnoz4NsnKx7VsvDYEoeF_5MY?usp=sharing)
