@@ -42,7 +42,7 @@ The variance in the final orientation of the EE is the main type of uncertainty 
 
 The whole simulation is executed in [Pybullet](https://pybullet.org/wordpress/). And the deep models are trained using [Tensorflow 2.7](https://pypi.org/project/tensorflow/) .
 
-The fisrt thing to di is to create an enviroment with the necessay packages (listed in req.txt) usung: 
+The first thing to do is to create an environment with the necessary packages (listed in req.txt) using: 
 ```
 conda create -n <environment-name> --file req.txt
 ```
