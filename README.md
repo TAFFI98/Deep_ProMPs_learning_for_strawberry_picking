@@ -56,11 +56,17 @@ conda create -n <environment-name> --file req.txt
 
 ## Usage
 
-### PyBullet simulations collection
+### PyBullet demonstartions collection
 
 This repository contains the code to collect the demonstrations for the reach to pick task. For 60 different random cluster configurations 10 demonstrations have been taken. Each of them encodes a different orientation of the End Effector at the final point. 
 
-The custer configuration is ompletely randomized but there are three recurrent configurations, namely with no obstacles on front of the target strawberry (Config 0), with an obsatcle on the left (Config 1) and with and obstacle on the right (Config 2) .
+We recommend using [IKFast](http://openrave.org/docs/0.8.2/openravepy/ikfast/), an analytical inverse kinematics solver, instead of PyBullet's damped least squares solver. IKFast bindings are included for Franka Panda robot:
+
+```
+cd PyBullet_simulations/panda_gym/resources/pybullet_tools/ikfast/franka_panda; python setup.py
+```
+
+The custer configuration is completely randomized but there are three recurrent configurations, namely with no obstacles on front of the target strawberry (Config 0), with an obsatcle on the left (Config 1) and with and obstacle on the right (Config 2) .
 
 ![CLuster config](project_images/cluster_conf.png)
 
