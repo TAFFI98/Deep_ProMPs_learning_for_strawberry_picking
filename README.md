@@ -127,6 +127,7 @@ You can then try the new optimized wieghts inserting them in the ```PyBullet_sim
 
 ## References
 PoWER: https://link.springer.com/article/10.1007%2Fs10994-010-5223-6
+
 ProMPs: http://eprints.lincoln.ac.uk/id/eprint/25785/1/5177-probabilistic-movement-primitives.pdf
 
 ## Contact
