@@ -1,4 +1,4 @@
-# Deep_ProMPs_learning_for_strawberry_picking
+# Deep ProMPs learning for strawberry picking
 
 
 <!-- TABLE OF CONTENTS -->
