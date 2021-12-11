@@ -1,0 +1,28 @@
+datetime                      <class 'datetime.datetime'>                                                                         
+os                            <module 'os' from '/home/taffi/anaconda3/envs/tf2_gpu/lib/python3.9/os.py'>                         
+inspect                       <module 'inspect' from '/home/taffi/anaconda3/envs/tf2_gpu/lib/python3.9/inspect.py'>               
+now                           08_12__22_24                                                                                        
+EXP_DIR                       /home/taffi/Documents/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_j6/DEEP MODEL EXPERIMENT
+J_DIR                         /home/taffi/Documents/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_j6                      
+ROOT_DIR                      /home/taffi/Documents/Cluster                                                                       
+IMAGE_PATH                    /home/taffi/Documents/Cluster/data/color_img/                                                       
+DEPTH_PATH                    /home/taffi/Documents/Cluster/data/depth/                                                           
+ANNOTATION_PATH               /home/taffi/Documents/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_j6/annotations/         
+OUTPUT_PATH                   /home/taffi/Documents/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_j6/DEEP MODEL EXPERIMENT/PLOTS/traj & weights pred distributions
+LOSS_PATH                     /home/taffi/Documents/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_j6/DEEP MODEL EXPERIMENT/LOSS/08_12__22_24
+METRIC_PATH                   /home/taffi/Documents/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_j6/DEEP MODEL EXPERIMENT/METRIC
+LOG_DIR                       /home/taffi/Documents/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_j6/DEEP MODEL EXPERIMENT/LOGS/08_12__22_24
+MODEL_FOLDER                  /home/taffi/Documents/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_j6/DEEP MODEL EXPERIMENT/MODELS
+MODEL_NAME                    model_08_12__22_24                                                                                  
+MODEL_PATH                    /home/taffi/Documents/Cluster/single_joint_covariances/ProMPs_Reach_to_Pick_j6/DEEP MODEL EXPERIMENT/MODELS/model_08_12__22_24
+batch                         5                                                                                                   
+epochs                        600                                                                                                 
+lr                            0.0001                                                                                              
+val_frac                      0.2                                                                                                 
+use_val_in_train              False                                                                                               
+N_test                        7                                                                                                   
+random_state                  42                                                                                                  
+l1_reg                        0                                                                                                   
+l2_reg                        0                                                                                                   
+es                            {'enable': False, 'delta': 0, 'patience': 10, 'restore_best_weight': True}                          
+rl                            {'enable': True, 'factor': 0.99, 'min_lr': 1e-09, 'patience': 5}                                    
