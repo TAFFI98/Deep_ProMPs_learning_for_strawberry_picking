@@ -133,7 +133,10 @@ python PyBullet_simulations/RL_training.py
 You can then try the new optimized wieghts inserting them in the ```PyBullet_simulations/test_panda_gym.py```file and running it.
 
 Below an example of trajectory preformed before and after the optimization through PoWER:
-<img src="project_images/before_RL.gif" width="400" height="400"> <img src="project_images/after_RL.gif" width="400" height="400">
+#### Before PoWER
+<img src="project_images/before_RL.gif" width="700" height="400"> 
+#### After PoWER
+<img src="project_images/after_RL.gif" width="700" height="400">
 
 
 
