@@ -1,0 +1,56 @@
+[[ 4.83674393e+00, -2.24142947e+01 , 5.22900709e+01, -8.11657618e+01,
+   9.36090292e+01, -7.99593890e+01  ,4.77494150e+01, -1.53189421e+01]
+ [-2.35886985e+00 ,-6.79855964e-01,  8.53750528e+00, -1.32144069e+01,
+   1.29099368e+01 ,-7.29762087e+00  ,2.63801715e+00 , 1.28046535e-01]
+ [-6.97130878e+00 , 3.21532802e+01, -7.27024753e+01 , 1.08186457e+02,
+  -1.18018096e+02,  9.55160512e+01 ,-5.41360553e+01  ,1.67186614e+01]
+ [-1.11337006e+00, -1.60251418e+01 , 3.86234097e+01 ,-6.34936922e+01,
+   6.52086915e+01 ,-5.20047905e+01  ,2.41508835e+01 ,-8.16126263e+00]
+ [ 7.05845298e+00 ,-3.26963952e+01 , 8.11223325e+01, -1.36300159e+02,
+   1.72026399e+02, -1.60731928e+02  ,1.05644589e+02 ,-3.80780415e+01]
+ [-5.40075319e+00 , 3.42271839e+01, -5.94884759e+01 , 9.28825216e+01,
+  -9.39248313e+01  ,8.16188749e+01 ,-4.11549248e+01  ,1.66160748e+01]
+ [ 8.55527617e+00, -2.04528881e+01, 3.51556506e+01, -4.14147545e+01,
+   3.69468773e+01 ,-1.76654268e+01 , 1.63456533e+00 , 3.94937245e+00]]
+
+        ''' REWARD COMPUTATION '''
+        success = False
+
+        ''' Case in which the gripper is colliding with the table '''
+        if self.table_collision == True:
+            reward = 0
+        elif self.table_collision == False and bool(collision_table) == True:
+            self.table_collision = True
+            reward = 0
+        elif bool(collision_table) == False and ee_berry_distance_xy <= 0.005 and ee_berry_distance_z <= 0.005 and ee_berry_distance_tot == self.current_distance and distance_orientation<=0.01 :
+            success = True
+            factor_dist  = 8
+            reward =  factor_dist
+
+        elif bool(collision_table) == False and ee_berry_distance_xy <= 0.005 and ee_berry_distance_z <= 0.005 and ee_berry_distance_tot == self.current_distance and distance_orientation > 0.01 :
+            factor_dist  =  8
+            reward =  factor_dist - np.exp(distance_orientation)
+
+        elif bool(collision_table) == False and ee_berry_distance_xy <= 0.005 and ee_berry_distance_z <= 0.005 and ee_berry_distance_tot < self.current_distance :
+            factor_dist = 8
+            reward = factor_dist - np.exp(ee_berry_distance_tot-self.current_distance) - np.exp(distance_orientation)
+
+        elif bool(collision_table) == False and ee_berry_distance_xy > 0.005 and ee_berry_distance_z <=0.005 and ee_berry_distance_tot <= self.current_distance  :
+            factor_dist = 8
+            reward = factor_dist  - 1.5*np.exp(ee_berry_distance_xy) -1.5* np.exp(distance_orientation)
+            if bool(collision_stem) == True:
+                reward = 0.1 * reward
+        elif bool(collision_table) == False and ee_berry_distance_z > 0.005 and ee_berry_distance_xy <= 0.005 and ee_berry_distance_tot <= self.current_distance:
+            factor_dist = 8
+            reward = factor_dist  - np.exp(ee_berry_distance_z)- np.exp(distance_orientation)
+            if bool(collision_stem) == True:
+                reward = 0.1 * reward
+        elif bool(collision_table) == False and ee_berry_distance_xy > 0.005 and ee_berry_distance_z > 0.005 and ee_berry_distance_tot <= self.current_distance  :
+            # else the reward id inversely proportional to the euclidean distance of the EE from the strawberry
+            factor_dist  = 8
+            reward = factor_dist  - np.exp(ee_berry_distance_xy)  - np.exp(distance_orientation)
+            if bool(collision_stem) == True:
+                reward = 0.1 * reward
+
+        elif ee_berry_distance_tot > self.current_distance :
+            reward =  0
