@@ -69,7 +69,6 @@ class PandaGymEnv(gym.Env):
         self.done = False
         self.reset()
         self.table_collision = False
-        # self.stem_collision = False
 
         ''' Desired EE position variables '''
         self.strawberry_position = None
@@ -83,7 +82,7 @@ class PandaGymEnv(gym.Env):
 
     def step(self, action):
 
-        self.Panda.apply_action_without_fingers(action,self.client)
+        self.Panda.apply_action_with_fingers(action,self.client)
 
         ''' Step the simulation by a single step '''
         p.stepSimulation(self.client)
@@ -115,56 +114,53 @@ class PandaGymEnv(gym.Env):
 
         distance_orientation = np.min([1, np.arccos(2 * np.square(np.dot(EE_inclination, EE_inclination_desired)) - 1)])
 
-        ''' Check if the gripper is colliding with the stem '''
+        ''' Check if the gripper is colliding with the table '''
         p.performCollisionDetection()
         collision_table = p.getContactPoints(self.Panda.panda, self.Table.table, physicsClientId = self.client)
-        collision_stem = p.getContactPoints(self.Panda.panda, self.Cluster.red_strawberry.strawberry, 10,11 ,physicsClientId=self.client)
-
+        collision_stem = p.getContactPoints(self.Panda.panda, self.Cluster.red_strawberry.strawberry, 10, 11,
+                                            physicsClientId=self.client)
 
         ''' REWARD COMPUTATION '''
         success = False
 
-        ''' Case in which the gripper is colliding with the table '''
         ''' Case in which the gripper is colliding with the table '''
         if self.table_collision == True:
             reward = 0
         elif self.table_collision == False and bool(collision_table) == True:
             self.table_collision = True
             reward = 0
-        elif bool(collision_table) == False and ee_berry_distance_xy <= 0.005 and ee_berry_distance_z <= 0.005 and ee_berry_distance_tot == self.current_distance and distance_orientation <= 0.01:
+        elif bool(collision_table) == False and ee_berry_distance_xy <= 0.005 and ee_berry_distance_z <= 0.005 and ee_berry_distance_tot == self.current_distance and distance_orientation<=0.01 :
             success = True
-            factor_dist = 8
-            reward = factor_dist
+            factor_dist  = 8
+            reward =  factor_dist
 
-        elif bool(collision_table) == False and ee_berry_distance_xy <= 0.005 and ee_berry_distance_z <= 0.005 and ee_berry_distance_tot == self.current_distance and distance_orientation > 0.01:
-            factor_dist = 8
-            reward = factor_dist - np.exp(distance_orientation)
+        elif bool(collision_table) == False and ee_berry_distance_xy <= 0.005 and ee_berry_distance_z <= 0.005 and ee_berry_distance_tot == self.current_distance and distance_orientation > 0.01 :
+            factor_dist  =  8
+            reward =  factor_dist - np.exp(distance_orientation)
 
-        elif bool(collision_table) == False and ee_berry_distance_xy <= 0.005 and ee_berry_distance_z <= 0.005 and ee_berry_distance_tot < self.current_distance:
+        elif bool(collision_table) == False and ee_berry_distance_xy <= 0.005 and ee_berry_distance_z <= 0.005 and ee_berry_distance_tot < self.current_distance :
             factor_dist = 8
-            reward = factor_dist - np.exp(ee_berry_distance_tot - self.current_distance) - np.exp(distance_orientation)
+            reward = factor_dist - np.exp(ee_berry_distance_tot-self.current_distance) - np.exp(distance_orientation)
 
-        elif bool(collision_table) == False and ee_berry_distance_xy <= 0.005 and ee_berry_distance_z > 0.005 and ee_berry_distance_tot <= self.current_distance:
+        elif bool(collision_table) == False and ee_berry_distance_xy > 0.005 and ee_berry_distance_z <=0.005 and ee_berry_distance_tot <= self.current_distance  :
             factor_dist = 8
-            reward = factor_dist - np.exp(ee_berry_distance_z) - np.exp(distance_orientation)
+            reward = factor_dist  - 1.5*np.exp(ee_berry_distance_xy) -1.5* np.exp(distance_orientation)
             if bool(collision_stem) == True:
-                reward= 0.1*reward
-
-        elif bool(collision_table) == False and ee_berry_distance_xy > 0.005 and ee_berry_distance_z <= 0.005 and ee_berry_distance_tot <= self.current_distance:
+                reward = 0.1 * reward
+        elif bool(collision_table) == False and ee_berry_distance_z > 0.005 and ee_berry_distance_xy <= 0.005 and ee_berry_distance_tot <= self.current_distance:
             factor_dist = 8
-            reward = factor_dist - np.exp(ee_berry_distance_xy) - np.exp(distance_orientation)
+            reward = factor_dist  - np.exp(ee_berry_distance_z)- np.exp(distance_orientation)
             if bool(collision_stem) == True:
-                reward= 0.1*reward
-
-        elif bool(collision_table) == False and ee_berry_distance_xy > 0.005 and ee_berry_distance_z > 0.005 and ee_berry_distance_tot <= self.current_distance:
+                reward = 0.1 * reward
+        elif bool(collision_table) == False and ee_berry_distance_xy > 0.005 and ee_berry_distance_z > 0.005 and ee_berry_distance_tot <= self.current_distance  :
             # else the reward id inversely proportional to the euclidean distance of the EE from the strawberry
-            factor_dist = 8
-            reward = factor_dist - np.exp(ee_berry_distance_xy) - np.exp(ee_berry_distance_z) - np.exp(distance_orientation)
+            factor_dist  = 8
+            reward = factor_dist  - np.exp(ee_berry_distance_xy)  - np.exp(distance_orientation)
             if bool(collision_stem) == True:
-                reward= 0.1*reward
+                reward = 0.1 * reward
 
-        elif ee_berry_distance_tot > self.current_distance:
-            reward = 0
+        elif ee_berry_distance_tot > self.current_distance :
+            reward =  0
 
         info = {'Table collision': self.table_collision,'EE-berry distance': ee_berry_distance_tot, 'Success':success}
         self.current_distance = ee_berry_distance_tot
