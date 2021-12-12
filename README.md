@@ -135,6 +135,7 @@ You can then try the new optimized wieghts inserting them in the ```PyBullet_sim
 Below an example of trajectory preformed before and after the optimization through PoWER:
 #### Before PoWER
 <img src="project_images/before_RL.gif" width="700" height="500"> 
+
 #### After PoWER
 <img src="project_images/after_RL.gif" width="700" height="500">
 
